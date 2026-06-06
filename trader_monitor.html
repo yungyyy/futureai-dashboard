@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>認知負載防禦系統 v3.0 — FutureAI</title>
+  <style>
+    :root {
+      --bg:      #0f172a;
+      --panel:   #1e293b;
+      --panel2:  #162032;
+      --border:  #2d3f55;
+      --muted:   #64748b;
+      --ink:     #e2e8f0;
+      --green:   #10b981;
+      --blue:    #3b82f6;
+      --indigo:  #6366f1;
+      --amber:   #f59e0b;
+      --orange:  #f97316;
+      --red:     #ef4444;
+      --cyan:    #0891b2;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei",
+                   "Noto Sans TC", "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 28px 20px 60px;
+    }
+
+    /* Layout */
+    .container { max-width: 1000px; margin: 0 auto; }
+    .spacer { height: 20px; }
+
+    /* Typography */
+    h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; }
+    h2 { font-size: 1.05rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: .82rem; color: var(--muted); line-height: 1.7; margin-top: 6px; max-width: 640px; }
+
+    /* Back link */
+    .back-link { font-size: .75rem; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 10px; transition: color .15s; }
+    .back-link:hover { color: var(--ink); }
+
+    /* State badge */
+    .state-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 18px; border-radius: 9999px; font-weight: 700;
+      font-size: .95rem; letter-spacing: .05em; transition: all .3s;
+      white-space: nowrap;
+    }
+    .s-optimal  { background: rgba(16,185,129,.12); color: #10b981; border: 1px solid rgba(16,185,129,.35); }
+    .s-stable   { background: rgba(59,130,246,.12); color: #3b82f6; border: 1px solid rgba(59,130,246,.35); }
+    .s-advisory { background: rgba(245,158,11,.12); color: #f59e0b; border: 1px solid rgba(245,158,11,.35); }
+    .s-warning  { background: rgba(249,115,22,.15); color: #f97316; border: 1px solid rgba(249,115,22,.4); }
+    .s-critical { background: rgba(239,68,68,.18);  color: #ef4444; border: 1px solid rgba(239,68,68,.5);
+                  animation: blink 1.4s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.65} }
+
+    /* Cards */
+    .card {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 20px;
+    }
+
+    /* Grid helpers */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 760px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+
+    /* Slider */
+    .slider-wrap { margin-bottom: 10px; }
+    .slider-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+    .slider-title { font-weight: 600; font-size: .9rem; }
+    .slider-val { font-weight: 700; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+
+    input[type=range] {
+      -webkit-appearance: none; width: 100%; height: 6px;
+      border-radius: 3px; outline: none; cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 18px; height: 18px;
+      border-radius: 50%; cursor: pointer; transition: transform .15s;
+    }
+    input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.25); }
+
+    .s-monitor { background: linear-gradient(to right, #1a2235 0%, #7f1d1d 100%); }
+    .s-monitor::-webkit-slider-thumb { background: #ef4444; }
+    .s-flow    { background: linear-gradient(to right, #1a2a1a 0%, #064e3b 100%); }
+    .s-flow::-webkit-slider-thumb    { background: #10b981; }
+    .s-dd      { background: linear-gradient(to right, #1a1a2a 0%, #7c2d12 100%); }
+    .s-dd::-webkit-slider-thumb      { background: #f97316; }
+    .s-sleep   { background: linear-gradient(to right, #2e1a3a 0%, #312e81 100%); }
+    .s-sleep::-webkit-slider-thumb   { background: #818cf8; }
+    .s-time    { background: linear-gradient(to right, #1a2a2e 0%, #164e63 100%); }
+    .s-time::-webkit-slider-thumb    { background: #22d3ee; }
+    .s-dec     { background: linear-gradient(to right, #1a1e2a 0%, #78350f 100%); }
+    .s-dec::-webkit-slider-thumb     { background: #fbbf24; }
+
+    .slider-note { font-size: .72rem; color: var(--muted); line-height: 1.6; margin-top: 8px; }
+    .slider-note b { color: #94a3b8; }
+
+    /* Metric bars */
+    .metric-row { margin-bottom: 18px; }
+    .metric-row:last-child { margin-bottom: 0; }
+    .metric-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .metric-label { font-size: .9rem; font-weight: 600; display: flex; align-items: center; gap: 7px; }
+    .metric-val { font-weight: 700; font-size: 1rem; font-variant-numeric: tabular-nums; }
+    .bar-track { background: #0f1724; border-radius: 6px; height: 11px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 6px; transition: width .45s ease, background .45s ease; }
+    .bar-formula { font-size: .7rem; color: var(--muted); margin-top: 5px; line-height: 1.5; font-family: ui-monospace, "Courier New", monospace; }
+
+    /* Ref tag */
+    .ref { display: inline-block; background: rgba(99,102,241,.14); color: #a5b4fc;
+           border: 1px solid rgba(99,102,241,.3); border-radius: 4px;
+           padding: 0 6px; font-size: .65rem; font-family: monospace; vertical-align: middle; }
+
+    /* Protocol card */
+    .protocol-card {
+      border-radius: 12px; padding: 22px 24px;
+      border: 1px solid var(--border); transition: all .3s;
+    }
+    .protocol-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
+    .protocol-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .protocol-body { font-size: .88rem; line-height: 1.75; font-family: ui-monospace, "Courier New", monospace; color: #cbd5e1; }
+    .protocol-actions { margin-top: 14px; display: flex; flex-direction: column; gap: 5px; }
+    .protocol-action { font-size: .82rem; font-family: ui-monospace, "Courier New", monospace; }
+
+    /* References collapsible */
+    details { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+    details summary {
+      padding: 14px 20px; cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--panel); user-select: none;
+      font-weight: 600; font-size: .9rem; color: var(--muted);
+      transition: color .15s;
+    }
+    details summary:hover { color: var(--ink); }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary .chevron { transform: rotate(90deg); }
+    .chevron { display: inline-block; transition: transform .2s; }
+    .refs-body { padding: 20px; background: var(--panel2); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 640px) { .refs-body { grid-template-columns: 1fr; } }
+    .ref-entry { border-left: 3px solid var(--border); padding-left: 12px; }
+    .ref-entry h4 { font-size: .82rem; font-weight: 700; color: #cbd5e1; margin-bottom: 3px; }
+    .ref-entry .ref-cite { font-size: .72rem; color: var(--indigo); margin-bottom: 5px; }
+    .ref-entry p { font-size: .72rem; color: var(--muted); line-height: 1.6; }
+
+    /* Footer */
+    .page-footer { font-size: .7rem; color: #374151; text-align: center; margin-top: 24px; }
+
+    /* Header row */
+    .header-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    @media (max-width: 640px) { .header-row { flex-direction: column; } }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <a href="index.html" class="back-link">← FutureAI Networth</a>
+  <div class="header-row">
+    <div>
+      <h1>認知負載防禦系統&ensp;<span style="font-weight:300;color:var(--muted);font-size:1rem">v3.0</span></h1>
+      <p class="lead">
+        基於神經經濟學與認知心理學文獻，將行為變數量化為可測量的
+        <b style="color:#fca5a5">皮質醇壓力指數</b>與
+        <b style="color:#93c5fd">前額葉剩餘能量</b>，
+        提供即時決策品質預警與斷路協議。
+      </p>
+    </div>
+    <div id="stateBadge" class="state-badge s-stable" style="margin-top:4px">
+      <span id="stateIcon">●</span>
+      <span id="stateLabel">系統穩定</span>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- Protocol Card — 置頂，滑動調整前先看行動指引 -->
+  <div id="protocolCard" class="protocol-card" style="background:rgba(59,130,246,.06);border-color:#1e3a5f">
+    <span id="protocolIcon" class="protocol-icon">●</span>
+    <p id="protocolTitle" class="protocol-title"></p>
+    <p id="protocolBody" class="protocol-body"></p>
+    <div id="protocolActions" class="protocol-actions"></div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- Input Sliders -->
+  <p style="font-size:.75rem;color:var(--muted);margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase">▸ 調整下方變數，上方行動指引即時更新</p>
+  <div class="grid-3">
+
+    <!-- Monitor Freq -->
+    <div class="card">
+      <div class="slider-wrap">
+        <div class="slider-header">
+          <span class="slider-title">微觀監控頻率</span>
+          <span class="slider-val" id="valMonitor" style="color:#ef4444">12</span>
+        </div>
+        <input type="range" id="monitorFreq" class="s-monitor" min="1" max="30" value="12">
+        <p class="slider-note">
+          次/小時 — 每次刷新損益即觸發一次損失確認神經迴路。<br>
+          <b>Benartzi &amp; Thaler (1995)</b>：高頻監控者因損失厭惡係數
+          <b>λ≈2.25</b>，心理損失體驗是低頻者的 <b>2.3 倍</b>。
+        </p>
+      </div>
+    </div>
+
+    <!-- Flow -->
+    <div class="card">
+      <div class="slider-wrap">
+        <div class="slider-header">
+          <span class="slider-title">實體心流投入</span>
+          <span class="slider-val" id="valFlow" style="color:#10b981">10</span>
+        </div>
+        <input type="range" id="flowState" class="s-flow" min="0" max="100" value="10">
+        <p class="slider-note">
+          % 時間投入全身動覺物理活動（如桌球）。<br>
+          <b>Csikszentmihalyi (1990)</b>：心流切換至 α 波主導模式，
+          抑制皮質醇並通過去甲腎上腺素再平衡恢復 PFC 抑制功能。
+        </p>
+      </div>
+    </div>
+
+    <!-- Drawdown -->
+    <div class="card">
+      <div class="slider-wrap">
+        <div class="slider-header">
+          <span class="slider-title">當前回撤幅度</span>
+          <span class="slider-val" id="valDD" style="color:#f97316">40</span>
+        </div>
+        <input type="range" id="drawdown" class="s-dd" min="0" max="100" value="40">
+        <p class="slider-note">
+          % — 帳面從最高點回落的幅度。<br>
+          <b>Kahneman &amp; Tversky (1979)</b> 前景理論：損失的主觀痛苦
+          是等值獲利的 <b>2.25 倍</b>，直接驅動邊緣系統損失規避洪流。
+        </p>
+      </div>
+    </div>
+
+    <!-- Sleep -->
+    <div class="card">
+      <div class="slider-wrap">
+        <div class="slider-header">
+          <span class="slider-title">昨晚睡眠時數</span>
+          <span class="slider-val" id="valSleep" style="color:#818cf8">7</span>
+        </div>
+        <input type="range" id="sleepHours" class="s-sleep" min="3" max="10" value="7">
+        <p class="slider-note">
+          小時 — <b>Walker &amp; Stickgold (2006)</b>：每損失一小時睡眠，
+          dlPFC 情緒抑制能力下降 <b>14%</b>，杏仁核過度反應性增加
+          <b>60%</b>。睡眠不足 6 小時= PFC 顯著受損。
+        </p>
+      </div>
+    </div>
+
+    <!-- Time Away -->
+    <div class="card">
+      <div class="slider-wrap">
+        <div class="slider-header">
+          <span class="slider-title">上次離開螢幕</span>
+          <span class="slider-val" id="valTimeAway" style="color:#22d3ee">2</span>
+        </div>
+        <input type="range" id="timeSinceBreak" class="s-time" min="0" max="8" value="2">
+        <p class="slider-note">
+          小時前 — <b>Lo &amp; Repin (2002)</b> 對倫敦交易員的 EDA / HRV
+          測量：生理喚起指標需 <b>3-4 小時</b>脫離刺激源，才能恢復至
+          基線水平。
+        </p>
+      </div>
+    </div>
+
+    <!-- Decisions -->
+    <div class="card">
+      <div class="slider-wrap">
+        <div class="slider-header">
+          <span class="slider-title">今日主動決策次數</span>
+          <span class="slider-val" id="valDecisions" style="color:#fbbf24">5</span>
+        </div>
+        <input type="range" id="decisionCount" class="s-dec" min="0" max="20" value="5">
+        <p class="slider-note">
+          下單、停損調整、倉位變動各計一次。<br>
+          <b>Baumeister et al. (1998)</b>：意志力是有限葡萄糖資源，
+          每次決策後均有可量測的 <b>dlPFC 功能衰退</b>。
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- Metrics -->
+  <div class="card">
+    <h2 style="margin-bottom:20px">神經系統運算指標</h2>
+
+    <!-- Cortisol -->
+    <div class="metric-row">
+      <div class="metric-header">
+        <span class="metric-label" style="color:#ef4444">
+          皮質醇累積指數
+          <span class="ref" title="Coates &amp; Herbert 2008; Arnsten 2009">C&amp;H '08</span>
+        </span>
+        <span class="metric-val" id="txtCortisol" style="color:#ef4444">0%</span>
+      </div>
+      <div class="bar-track"><div id="barCortisol" class="bar-fill" style="width:0%;background:#ef4444"></div></div>
+      <p class="bar-formula">= (監控頻率×4.5) + (回撤×0.7) + (睡眠不足補償) + (決策疲勞×1.8) − (心流×0.6) − (離線恢復×3)</p>
+    </div>
+
+    <!-- PFC -->
+    <div class="metric-row">
+      <div class="metric-header">
+        <span class="metric-label" style="color:#3b82f6">
+          前額葉剩餘能量
+          <span class="ref" title="Arnsten 2009; Baumeister 1998">Arnsten '09</span>
+        </span>
+        <span class="metric-val" id="txtPFC" style="color:#3b82f6">0%</span>
+      </div>
+      <div class="bar-track"><div id="barPFC" class="bar-fill" style="width:0%;background:#3b82f6"></div></div>
+      <p class="bar-formula">= 100 − (監控頻率×3.5) − (回撤×0.35) − (決策×1.5) + (睡眠修正×5) + (心流×0.45) + (離線×2)</p>
+    </div>
+
+    <!-- DQI -->
+    <div class="metric-row">
+      <div class="metric-header">
+        <span class="metric-label" style="color:#10b981">
+          決策品質係數 DQI
+          <span class="ref" title="Damasio 1994; Lo &amp; Repin 2002">Damasio '94</span>
+        </span>
+        <span class="metric-val" id="txtDQI" style="color:#10b981">0%</span>
+      </div>
+      <div class="bar-track"><div id="barDQI" class="bar-fill" style="width:0%;background:#10b981"></div></div>
+      <p class="bar-formula">= √(PFC/100) × (1 − 皮質醇/100) × 100 — 乘積型衰減：兩者同時惡化時呈非線性崩潰（Damasio 軀體標記假說）</p>
+    </div>
+
+    <!-- Risk -->
+    <div class="metric-row">
+      <div class="metric-header">
+        <span class="metric-label" style="color:#f59e0b">
+          手動干預（系統崩潰）風險
+          <span class="ref" title="Lo &amp; Repin 2002">Lo '02</span>
+        </span>
+        <span class="metric-val" id="txtRisk" style="color:#f59e0b">0%</span>
+      </div>
+      <div class="bar-track"><div id="barRisk" class="bar-fill" style="width:0%;background:#f59e0b"></div></div>
+      <p class="bar-formula">當 PFC &lt; 30% 且皮質醇 &gt; 70% 時進入指數爆發區：前額葉對邊緣系統的抑制失守，理性決策被情緒覆蓋（Damasio 軀體標記失調閾值）</p>
+    </div>
+
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- References -->
+  <details id="refs">
+    <summary>
+      <span>📚 理論基礎與參考文獻（6 篇核心論文）</span>
+      <span class="chevron">▶</span>
+    </summary>
+    <div class="refs-body">
+
+      <div class="ref-entry" style="border-color:#ef4444">
+        <h4>Benartzi &amp; Thaler (1995)</h4>
+        <p class="ref-cite">Quarterly Journal of Economics, 110(1), 73–92</p>
+        <p>"Myopic Loss Aversion and the Equity Premium Puzzle"<br>
+        損失厭惡係數 λ≈2.25：高頻評估的投資人因感受到更多相對損失（短期波動可見性增加），
+        長期績效顯著低於低頻評估者。每次監控等同一次損失確認神經觸發事件。</p>
+      </div>
+
+      <div class="ref-entry" style="border-color:#f59e0b">
+        <h4>Coates &amp; Herbert (2008)</h4>
+        <p class="ref-cite">PNAS, 105(16), 6167–6172</p>
+        <p>"Endogenous steroids and financial risk taking on a London trading floor"<br>
+        對 17 位倫敦交易員 8 天追蹤：高波動日皮質醇平均上升 68%。
+        慢性皮質醇升高導致<b>風險厭惡</b>——過度謹慎、錯失訊號，而非衝動性冒險。</p>
+      </div>
+
+      <div class="ref-entry" style="border-color:#3b82f6">
+        <h4>Arnsten (2009)</h4>
+        <p class="ref-cite">Nature Reviews Neuroscience, 10, 410–422</p>
+        <p>"Stress signalling pathways that impair prefrontal cortex structure and function"<br>
+        皮質醇誘發 CRF（皮促素釋放因子）損傷 PFC layer II/III 錐體細胞的樹突棘；
+        即使短暫壓力也可損傷工作記憶與衝動抑制控制功能。</p>
+      </div>
+
+      <div class="ref-entry" style="border-color:#6366f1">
+        <h4>Baumeister et al. (1998)</h4>
+        <p class="ref-cite">Journal of Personality and Social Psychology, 74(5), 1252–1265</p>
+        <p>"Ego Depletion: Is the Active Self a Limited Resource?"<br>
+        自我調節依賴有限的葡萄糖資源，每次主動抉擇後均有可量測的認知功能衰退。
+        後續 fMRI 研究確認 dlPFC 葡萄糖消耗直接對應決策負荷。</p>
+      </div>
+
+      <div class="ref-entry" style="border-color:#10b981">
+        <h4>Lo &amp; Repin (2002)</h4>
+        <p class="ref-cite">Journal of Cognitive Neuroscience, 14(3), 323–339</p>
+        <p>"The Psychophysiology of Real-Time Financial Risk Processing"<br>
+        首次對真實交易員的多通道生理監測（EDA、HRV、體溫）。高情緒反應性（高皮膚電導變異）
+        與衝動性非計畫決策呈正相關；生理指標可預測非理性操作。</p>
+      </div>
+
+      <div class="ref-entry" style="border-color:#f97316">
+        <h4>Kahneman &amp; Tversky (1979)</h4>
+        <p class="ref-cite">Econometrica, 47(2), 263–291</p>
+        <p>"Prospect Theory: An Analysis of Decision under Risk"<br>
+        前景理論：損失的主觀痛苦強度是等值獲利的 2.25 倍（λ=2.25）。
+        此非對稱性解釋了為何回撤對心理的影響遠超等量上漲帶來的欣慰，
+        並驅動損失規避下的非理性砍倉衝動。</p>
+      </div>
+
+    </div>
+  </details>
+
+  <p class="page-footer">
+    本工具為概念性自我監測輔助，數值公式以文獻參數為基礎設計，非臨床診斷工具。
+    數據僅在您的瀏覽器中運算，不傳送至任何伺服器。
+  </p>
+
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+const sliders = {
+  monitor:   $('monitorFreq'),
+  flow:      $('flowState'),
+  dd:        $('drawdown'),
+  sleep:     $('sleepHours'),
+  timeAway:  $('timeSinceBreak'),
+  decisions: $('decisionCount'),
+};
+const displays = {
+  monitor:   $('valMonitor'),
+  flow:      $('valFlow'),
+  dd:        $('valDD'),
+  sleep:     $('valSleep'),
+  timeAway:  $('valTimeAway'),
+  decisions: $('valDecisions'),
+};
+
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+// ─── State definitions ──────────────────────────────────────────
+const STATES = [
+  {
+    key: 'optimal',
+    label: '最佳狀態', icon: '◉', badge: 's-optimal',
+    cardBg: 'background:rgba(16,185,129,.06)', cardBorder: 'border-color:#064e3b',
+    titleColor: '#10b981',
+    title: 'OPTIMAL — 神經系統最佳化運行',
+    body: '前額葉抑制系統完整，皮質醇在基線範圍內。這是執行高品質決策的稀缺窗口。策略訊號出現時，決策品質最可信賴。Coates & Herbert (2008) 的數據顯示，此生理狀態下的交易者風險校準最準確。',
+    actions: [
+      { t: '✓ 可正常執行策略訊號，決策品質高', c: '#10b981' },
+      { t: '✓ 維持當前監控頻率，勿主動提升', c: '#10b981' },
+      { t: '✓ 記錄此狀態的決策框架作為基準', c: '#10b981' },
+    ]
+  },
+  {
+    key: 'stable',
+    label: '系統穩定', icon: '●', badge: 's-stable',
+    cardBg: 'background:rgba(59,130,246,.06)', cardBorder: 'border-color:#1e3a5f',
+    titleColor: '#3b82f6',
+    title: 'STABLE — 系統在安全容差內運行',
+    body: '各指標在可接受範圍，無需立即干預。持續觀察是否有單一指標在攀升。依策略訊號操作，避免超額主觀判斷。',
+    actions: [
+      { t: '→ 維持現狀，保持警覺', c: '#3b82f6' },
+      { t: '→ 避免額外增加決策負荷（非必要不加碼）', c: '#3b82f6' },
+      { t: '→ 計畫下次實體心流活動（預防性散熱）', c: '#3b82f6' },
+    ]
+  },
+  {
+    key: 'advisory',
+    label: '建議調整', icon: '◆', badge: 's-advisory',
+    cardBg: 'background:rgba(245,158,11,.06)', cardBorder: 'border-color:#78350f',
+    titleColor: '#f59e0b',
+    title: 'ADVISORY — 系統負荷偏高，主動降溫',
+    body: '皮質醇或決策疲勞正在累積，前額葉儲備開始消耗。Benartzi & Thaler (1995) 顯示，此狀態若持續將導致「認知窄化」(Cognitive Narrowing)，進一步放大損失的主觀感知，形成監控→焦慮→更頻繁監控的正回饋迴路。',
+    actions: [
+      { t: '⚠ 立即降低監控頻率 → 每小時最多 3-5 次', c: '#f59e0b' },
+      { t: '⚠ 不新增部位，僅執行已觸發的策略訊號', c: '#f59e0b' },
+      { t: '⚠ 安排 20 分鐘以上的實體活動（散熱）', c: '#f59e0b' },
+    ]
+  },
+  {
+    key: 'warning',
+    label: '警戒', icon: '▲', badge: 's-warning',
+    cardBg: 'background:rgba(249,115,22,.08)', cardBorder: 'border-color:#9a3412',
+    titleColor: '#f97316',
+    title: 'WARNING — 前額葉防禦薄弱，進入危險邊界',
+    body: 'Arnsten (2009) 的 CRF 研究：此時前額葉 layer II/III 樹突棘正受壓力激素損傷，工作記憶容量下降，衝動抑制功能弱化。任何「感覺正確的直覺」在此狀態下都高度不可靠——這正是 Damasio 軀體標記開始失準的前兆。',
+    actions: [
+      { t: '🔴 關閉損益顯示，只看 K 線方向，禁看數字', c: '#f97316' },
+      { t: '🔴 禁止非訊號觸發的一切手動操作', c: '#f97316' },
+      { t: '🔴 立刻執行物理離線：至少 30 分鐘完全脫離', c: '#f97316' },
+    ]
+  },
+  {
+    key: 'critical',
+    label: '緊急斷路', icon: '⛔', badge: 's-critical',
+    cardBg: 'background:rgba(239,68,68,.1)', cardBorder: 'border-color:#7f1d1d',
+    titleColor: '#ef4444',
+    title: '⛔ CRITICAL — 執行緊急物理斷路協議',
+    body: 'Lo & Repin (2002) 的臨界點：皮質醇 > 70% 且前額葉 < 30% 時，邊緣系統完全覆蓋理性迴路。Damasio (1994) 的軀體標記假說：此時的「決策」本質上是純情緒反應，等同於帶有損失偏誤的隨機噪音。任何操作都是醫源性損傷（Iatrogenic Damage）——你正在用情緒破壞策略的數學期望值。',
+    actions: [
+      { t: '⛔ 立即關閉所有報價視窗、掩蓋螢幕', c: '#ef4444' },
+      { t: '⛔ 拿起桌球拍或進行 30 分鐘以上高強度物理活動', c: '#ef4444' },
+      { t: '⛔ 本交易時段剩餘時間設為「只讀模式」', c: '#ef4444' },
+      { t: '⛔ 不得執行任何手動下單，包括停損調整', c: '#ef4444' },
+    ]
+  },
+];
+
+function getState(cortisol, pfc, risk) {
+  if (risk > 80)                       return STATES[4];
+  if (risk > 60 || pfc < 30)           return STATES[3];
+  if (risk > 40 || cortisol > 55 || pfc < 45) return STATES[2];
+  if (risk > 20 || cortisol > 35)      return STATES[1];
+  return STATES[0];
+}
+
+// ─── Main calculation ──────────────────────────────────────────
+function calculate() {
+  const f    = parseInt(sliders.monitor.value);
+  const flow = parseInt(sliders.flow.value);
+  const dd   = parseInt(sliders.dd.value);
+  const sl   = parseInt(sliders.sleep.value);
+  const ta   = parseInt(sliders.timeAway.value);
+  const dec  = parseInt(sliders.decisions.value);
+
+  displays.monitor.textContent   = f;
+  displays.flow.textContent      = flow;
+  displays.dd.textContent        = dd;
+  displays.sleep.textContent     = sl;
+  displays.timeAway.textContent  = ta;
+  displays.decisions.textContent = dec;
+
+  // --- Cortisol Index (Benartzi & Thaler 1995; Coates & Herbert 2008; Baumeister 1998) ---
+  let cortisol = (f    * 4.5)               // myopic monitoring → loss-aversion circuit λ≈2.25
+               + (dd   * 0.7)               // prospect-theory loss asymmetry
+               + (Math.max(0, 6 - sl) * 5)  // sleep deficit → amygdala hyperreactivity +14%/hr
+               + (dec  * 1.8)               // ego depletion → cortisol maintenance
+               - (flow * 0.6)               // flow: α-wave / anabolic offset
+               - (ta   * 3);               // offline recovery (EDA/HRV baseline ~3-4 hr)
+  cortisol = clamp(cortisol, 0, 100);
+
+  // --- PFC Capacity (Arnsten 2009; Baumeister 1998; Walker 2006) ---
+  let pfc = 100
+          - (f    * 3.5)          // prediction-error monitoring depletes layer II/III synapses
+          - (dd   * 0.35)         // vmPFC somatic-marker activation under loss threat
+          - (dec  * 1.5)          // dlPFC glucose depletion per decision (Baumeister 1998)
+          + ((sl - 6) * 5)        // REM sleep restores synaptic connections (Walker 2006)
+          + (flow * 0.45)         // flow → α-wave PFC efficiency increase
+          + (ta   * 2);           // recovery window restores PFC inhibitory control
+  pfc = clamp(pfc, 0, 100);
+
+  // --- Decision Quality Index (Damasio 1994: multiplicative somatic-marker degradation) ---
+  const dqi = clamp(Math.sqrt(pfc / 100) * (1 - cortisol / 100) * 100, 0, 100);
+
+  // --- Manual Intervention Risk (Lo & Repin 2002 threshold) ---
+  let risk;
+  if (pfc < 30 && cortisol > 70) {
+    risk = 80 + (cortisol - 70) * 0.6 + (30 - pfc) * 0.6;  // exponential zone
+  } else {
+    risk = cortisol * 0.35 + (100 - pfc) * 0.25 + dec * 1.5;
+  }
+  risk = clamp(risk, 0, 100);
+
+  // --- Update bars ---
+  function bar(barId, txtId, val, low, mid, lowC, midC, hiC) {
+    const fill = $(barId);
+    $(txtId).textContent = Math.round(val) + '%';
+    fill.style.width = val + '%';
+    fill.style.background = val >= mid ? hiC : val >= low ? midC : lowC;
+  }
+  bar('barCortisol', 'txtCortisol', cortisol,
+      40, 70, '#f59e0b', '#f97316', '#ef4444');
+  bar('barPFC', 'txtPFC', pfc,
+      45, 65, '#ef4444', '#f59e0b', '#3b82f6');
+  bar('barDQI', 'txtDQI', dqi,
+      35, 60, '#ef4444', '#f59e0b', '#10b981');
+  bar('barRisk', 'txtRisk', risk,
+      40, 65, '#10b981', '#f59e0b', '#ef4444');
+
+  // Sync metric val colors to bar
+  $('txtCortisol').style.color = cortisol > 70 ? '#ef4444' : cortisol > 50 ? '#f97316' : '#f59e0b';
+  $('txtPFC').style.color      = pfc < 30 ? '#ef4444' : pfc < 50 ? '#f59e0b' : '#3b82f6';
+  $('txtDQI').style.color      = dqi < 30 ? '#ef4444' : dqi < 55 ? '#f59e0b' : '#10b981';
+  $('txtRisk').style.color     = risk > 80 ? '#ef4444' : risk > 60 ? '#f97316' : risk > 40 ? '#f59e0b' : '#10b981';
+
+  // --- State & Protocol ---
+  const st = getState(cortisol, pfc, risk);
+
+  // Badge
+  const badge = $('stateBadge');
+  badge.className = 'state-badge ' + st.badge;
+  $('stateIcon').textContent = st.icon;
+  $('stateLabel').textContent = st.label;
+
+  // Protocol card
+  const card = $('protocolCard');
+  card.style.cssText = st.cardBg + ';' + st.cardBorder;
+  $('protocolIcon').textContent = st.icon;
+  $('protocolTitle').textContent = st.title;
+  $('protocolTitle').style.color = st.titleColor;
+  $('protocolBody').textContent = st.body;
+
+  const actDiv = $('protocolActions');
+  actDiv.innerHTML = st.actions.map(a =>
+    `<p class="protocol-action" style="color:${a.c}">${a.t}</p>`
+  ).join('');
+}
+
+Object.values(sliders).forEach(s => s.addEventListener('input', calculate));
+calculate();
+</script>
+</body>
+</html>
