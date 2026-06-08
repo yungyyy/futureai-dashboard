@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260608_0800_hourly",
+  "snapshot_id": "20260608_0900_hourly",
   "date": "2026-06-08",
   "tag": "hourly",
-  "generated_at": "2026-06-08T08:07:10",
+  "generated_at": "2026-06-08T09:07:47",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -51,9 +51,9 @@
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": 383670,
-    "capital_tw_equity_twd": 403700,
-    "capital_tw_market_value_twd": 403700,
+    "total_net_worth_twd": 0,
+    "capital_tw_equity_twd": 0,
+    "capital_tw_market_value_twd": 0,
     "kgi_futures_equity_twd": 0,
     "kgi_domestic_equity_twd": 0,
     "kgi_overseas_equity_twd": 0,
@@ -61,19 +61,19 @@
     "us_portfolio_account_1_value_twd": 0,
     "us_portfolio_account_1_stock_value_twd": 0,
     "us_portfolio_account_1_cash_twd": 0,
-    "us_portfolio_account_2_value_twd": -20030,
+    "us_portfolio_account_2_value_twd": 0,
     "us_portfolios_cash_twd": 0,
-    "us_portfolios_market_value_twd": -20030
+    "us_portfolios_market_value_twd": 0
   },
   "accounts": {
     "capital_tw_securities": {
       "id": "capital_tw_securities",
       "display_name": "群益證券資產",
       "currency": "TWD",
-      "as_of": "20260608 08:09:18",
+      "as_of": "20260608 09:09:19",
       "source": "User confirmed inventory override / official quote revaluation",
       "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
-      "price_source_time": "20260608 08:09:18",
+      "price_source_time": "20260608 09:09:19",
       "market_value_twd": 403700,
       "net_value_twd": 403700,
       "cost_twd": null,
@@ -422,7 +422,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-08T08:13:01",
+    "as_of": "2026-06-08T09:10:43",
     "current_lots": 0,
     "current_side": "FLAT",
     "kgi_unrealized_pnl_twd": 0,
@@ -454,7 +454,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-08T08:13:02",
+    "updated_at": "2026-06-08T09:10:51",
     "record_count": 81,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -16754,7 +16754,44 @@
         "manual_cash": 0,
         "total_net_worth": 2603741
       }
+    },
+    {
+      "snapshot_id": "20260608_0900_hourly",
+      "date": "2026-06-08",
+      "tag": "hourly",
+      "generated_at": "2026-06-08T09:07:47",
+      "total_net_worth_twd": 2603741,
+      "capital_tw_equity_twd": 403700,
+      "capital_tw_market_value_twd": 403700,
+      "capital_futures_equity_twd": 153174,
+      "kgi_futures_equity_twd": 352044,
+      "kgi_domestic_equity_twd": 352044,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1442693,
+      "us_portfolio_account_1_stock_value_twd": 1442693,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 252130,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1694823,
+      "expense_today_twd": 0,
+      "expense_week_twd": 0,
+      "expense_month_twd": 19489,
+      "expense_alltime_twd": 73917,
+      "component_nav_twd": {
+        "capital_tw_securities": 403700,
+        "capital_futures": 153174,
+        "kgi_futures_total": 352044,
+        "kgi_domestic_futures": 352044,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1694823,
+        "us_portfolio_account_1": 1442693,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 252130,
+        "manual_cash": 0,
+        "total_net_worth": 2603741
+      }
     }
   ],
-  "history_count": 467
+  "history_count": 468
 }
