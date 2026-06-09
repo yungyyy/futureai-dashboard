@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260609_2100_hourly",
+  "snapshot_id": "20260609_2200_hourly",
   "date": "2026-06-09",
   "tag": "hourly",
-  "generated_at": "2026-06-09T21:07:54",
+  "generated_at": "2026-06-09T22:08:58",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -19,8 +19,8 @@
   "totals": {
     "capital_tw_equity_twd": 381150,
     "capital_tw_market_value_twd": 381150,
-    "capital_futures_equity_twd": 38815,
-    "capital_futures_available_twd": 38815,
+    "capital_futures_equity_twd": 44815,
+    "capital_futures_available_twd": 44815,
     "kgi_futures_equity_twd": 359936,
     "kgi_domestic_equity_twd": 359936,
     "kgi_overseas_equity_twd": 0,
@@ -34,11 +34,11 @@
     "us_portfolios_cost_twd": 1281308,
     "us_portfolios_unrealized_pnl_twd": 413514,
     "tw_stock_inventory_market_value_twd": 381150,
-    "liquid_tw_broker_equity_twd": 779901,
-    "total_net_worth_twd": 2474724,
+    "liquid_tw_broker_equity_twd": 785901,
+    "total_net_worth_twd": 2480724,
     "component_nav_twd": {
       "capital_tw_securities": 381150,
-      "capital_futures": 38815,
+      "capital_futures": 44815,
       "kgi_futures_total": 359936,
       "kgi_domestic_futures": 359936,
       "kgi_overseas_futures": 0,
@@ -47,13 +47,13 @@
       "us_portfolio_account_1_cash": 0,
       "us_portfolio_account_2": 252130,
       "manual_cash": 0,
-      "total_net_worth": 2474724
+      "total_net_worth": 2480724
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": 374650,
-    "capital_tw_equity_twd": 381150,
-    "capital_tw_market_value_twd": 381150,
+    "total_net_worth_twd": 6000,
+    "capital_tw_equity_twd": 0,
+    "capital_tw_market_value_twd": 0,
     "kgi_futures_equity_twd": 0,
     "kgi_domestic_equity_twd": 0,
     "kgi_overseas_equity_twd": 0,
@@ -118,11 +118,11 @@
       "id": "capital_futures",
       "display_name": "群益期貨",
       "currency": "TWD",
-      "equity_twd": 38815,
-      "available_twd": 38815,
-      "realized_today_twd": 36500,
+      "equity_twd": 44815,
+      "available_twd": 44815,
+      "realized_today_twd": 42500,
       "source": "Capital_API_GetFutureRightMoney",
-      "as_of": "2026-06-09T20:21:08",
+      "as_of": "2026-06-09T21:21:47",
       "warnings": []
     },
     "kgi_futures": {
@@ -422,7 +422,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-09T21:09:43",
+    "as_of": "2026-06-09T22:10:51",
     "current_lots": 0,
     "current_side": "FLAT",
     "kgi_unrealized_pnl_twd": 0,
@@ -454,7 +454,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-09T21:09:43",
+    "updated_at": "2026-06-09T22:10:51",
     "record_count": 90,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -18102,7 +18102,44 @@
         "manual_cash": 0,
         "total_net_worth": 2474724
       }
+    },
+    {
+      "snapshot_id": "20260609_2200_hourly",
+      "date": "2026-06-09",
+      "tag": "hourly",
+      "generated_at": "2026-06-09T22:08:58",
+      "total_net_worth_twd": 2480724,
+      "capital_tw_equity_twd": 381150,
+      "capital_tw_market_value_twd": 381150,
+      "capital_futures_equity_twd": 44815,
+      "kgi_futures_equity_twd": 359936,
+      "kgi_domestic_equity_twd": 359936,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1442693,
+      "us_portfolio_account_1_stock_value_twd": 1442693,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 252130,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1694823,
+      "expense_today_twd": 1255,
+      "expense_week_twd": 2663,
+      "expense_month_twd": 22152,
+      "expense_alltime_twd": 76580,
+      "component_nav_twd": {
+        "capital_tw_securities": 381150,
+        "capital_futures": 44815,
+        "kgi_futures_total": 359936,
+        "kgi_domestic_futures": 359936,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1694823,
+        "us_portfolio_account_1": 1442693,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 252130,
+        "manual_cash": 0,
+        "total_net_worth": 2480724
+      }
     }
   ],
-  "history_count": 503
+  "history_count": 504
 }
