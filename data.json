@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260609_1100_hourly",
+  "snapshot_id": "20260609_1200_hourly",
   "date": "2026-06-09",
   "tag": "hourly",
-  "generated_at": "2026-06-09T11:09:15",
+  "generated_at": "2026-06-09T12:06:31",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -51,9 +51,9 @@
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": -425029,
-    "capital_tw_equity_twd": -379500,
-    "capital_tw_market_value_twd": -379500,
+    "total_net_worth_twd": 0,
+    "capital_tw_equity_twd": 0,
+    "capital_tw_market_value_twd": 0,
     "kgi_futures_equity_twd": 0,
     "kgi_domestic_equity_twd": 0,
     "kgi_overseas_equity_twd": 0,
@@ -72,7 +72,7 @@
       "currency": "TWD",
       "as_of": "2026-05-22",
       "source": "User confirmed inventory override",
-      "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
+      "price_source": "TWSE/TPEx MIS unavailable",
       "price_source_time": "2026-05-22",
       "market_value_twd": 0,
       "net_value_twd": 0,
@@ -107,7 +107,8 @@
       ],
       "warnings": [
         "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
-        "缺少官方即時/收盤報價：7851；保留券商/備援價格。"
+        "缺少官方即時/收盤報價：7851；保留券商/備援價格。",
+        "TWSE/TPEx MIS 報價抓取失敗：<urlopen error _ssl.c:989: The handshake operation timed out>"
       ]
     },
     "capital_futures": {
@@ -418,7 +419,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-09T11:11:37",
+    "as_of": "2026-06-09T12:09:39",
     "current_lots": 0,
     "current_side": "FLAT",
     "kgi_unrealized_pnl_twd": 0,
@@ -435,22 +436,22 @@
     "strategy_activity": [
       {
         "strategy": "期貨策略合計",
-        "long_lots": 0,
+        "long_lots": 3,
         "short_lots": 0,
         "exit_lots": 0,
-        "signal_count": 0,
+        "signal_count": 1,
         "realized_pnl": "已併入當日損益",
         "unrealized_pnl": "-",
         "status": "已記錄"
       }
     ],
     "open_positions": [],
-    "broker_fill_count": 6,
+    "broker_fill_count": 8,
     "privacy_note": "公開頁只顯示策略別名；原始策略名稱只保存在本機 memory/account_asset_snapshots/futures_strategy_alias_private.json"
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-09T11:11:37",
+    "updated_at": "2026-06-09T12:09:40",
     "record_count": 87,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -566,6 +567,7 @@
   "warnings": [
     "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
     "缺少官方即時/收盤報價：7851；保留券商/備援價格。",
+    "TWSE/TPEx MIS 報價抓取失敗：<urlopen error _ssl.c:989: The handshake operation timed out>",
     "US Portfolio A 價格資料過舊：2026-05-21（19 天前）。",
     "US Portfolio B 價格資料過舊：2026-06-05（4 天前）。"
   ],
@@ -17724,7 +17726,44 @@
         "manual_cash": 0,
         "total_net_worth": 2160615
       }
+    },
+    {
+      "snapshot_id": "20260609_1200_hourly",
+      "date": "2026-06-09",
+      "tag": "hourly",
+      "generated_at": "2026-06-09T12:06:31",
+      "total_net_worth_twd": 2160615,
+      "capital_tw_equity_twd": 0,
+      "capital_tw_market_value_twd": 0,
+      "capital_futures_equity_twd": 105856,
+      "kgi_futures_equity_twd": 359936,
+      "kgi_domestic_equity_twd": 359936,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1442693,
+      "us_portfolio_account_1_stock_value_twd": 1442693,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 252130,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1694823,
+      "expense_today_twd": 616,
+      "expense_week_twd": 2024,
+      "expense_month_twd": 21513,
+      "expense_alltime_twd": 75941,
+      "component_nav_twd": {
+        "capital_tw_securities": 0,
+        "capital_futures": 105856,
+        "kgi_futures_total": 359936,
+        "kgi_domestic_futures": 359936,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1694823,
+        "us_portfolio_account_1": 1442693,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 252130,
+        "manual_cash": 0,
+        "total_net_worth": 2160615
+      }
     }
   ],
-  "history_count": 493
+  "history_count": 494
 }
