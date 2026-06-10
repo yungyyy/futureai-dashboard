@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260611_0200_hourly",
+  "snapshot_id": "20260611_0300_hourly",
   "date": "2026-06-11",
   "tag": "hourly",
-  "generated_at": "2026-06-11T02:08:33",
+  "generated_at": "2026-06-11T03:07:42",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -51,9 +51,9 @@
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": -381150,
-    "capital_tw_equity_twd": -381150,
-    "capital_tw_market_value_twd": -381150,
+    "total_net_worth_twd": 0,
+    "capital_tw_equity_twd": 0,
+    "capital_tw_market_value_twd": 0,
     "kgi_futures_equity_twd": 0,
     "kgi_domestic_equity_twd": 0,
     "kgi_overseas_equity_twd": 0,
@@ -72,7 +72,7 @@
       "currency": "TWD",
       "as_of": "2026-05-22",
       "source": "User confirmed inventory override",
-      "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
+      "price_source": "TWSE/TPEx MIS unavailable",
       "price_source_time": "2026-05-22",
       "market_value_twd": 0,
       "net_value_twd": 0,
@@ -107,7 +107,8 @@
       ],
       "warnings": [
         "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
-        "缺少官方即時/收盤報價：7851；保留券商/備援價格。"
+        "缺少官方即時/收盤報價：7851；保留券商/備援價格。",
+        "TWSE/TPEx MIS 報價抓取失敗：<urlopen error _ssl.c:989: The handshake operation timed out>"
       ]
     },
     "capital_futures": {
@@ -418,7 +419,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-11T02:12:38",
+    "as_of": "2026-06-11T03:13:34",
     "current_lots": 0,
     "current_side": "FLAT",
     "kgi_unrealized_pnl_twd": 0,
@@ -450,7 +451,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-11T02:12:39",
+    "updated_at": "2026-06-11T03:13:35",
     "record_count": 94,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -564,6 +565,7 @@
   "warnings": [
     "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
     "缺少官方即時/收盤報價：7851；保留券商/備援價格。",
+    "TWSE/TPEx MIS 報價抓取失敗：<urlopen error _ssl.c:989: The handshake operation timed out>",
     "US Portfolio A 價格資料過舊：2026-05-21（21 天前）。",
     "Portfolio B has missing ticker prices; using account-level broker total where needed."
   ],
@@ -19091,7 +19093,44 @@
         "manual_cash": 0,
         "total_net_worth": 2154634
       }
+    },
+    {
+      "snapshot_id": "20260611_0300_hourly",
+      "date": "2026-06-11",
+      "tag": "hourly",
+      "generated_at": "2026-06-11T03:07:42",
+      "total_net_worth_twd": 2154634,
+      "capital_tw_equity_twd": 0,
+      "capital_tw_market_value_twd": 0,
+      "capital_futures_equity_twd": 11815,
+      "kgi_futures_equity_twd": 427966,
+      "kgi_domestic_equity_twd": 427966,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1442693,
+      "us_portfolio_account_1_stock_value_twd": 1442693,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1714853,
+      "expense_today_twd": 0,
+      "expense_week_twd": 4239,
+      "expense_month_twd": 23728,
+      "expense_alltime_twd": 78156,
+      "component_nav_twd": {
+        "capital_tw_securities": 0,
+        "capital_futures": 11815,
+        "kgi_futures_total": 427966,
+        "kgi_domestic_futures": 427966,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1714853,
+        "us_portfolio_account_1": 1442693,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2154634
+      }
     }
   ],
-  "history_count": 530
+  "history_count": 531
 }
