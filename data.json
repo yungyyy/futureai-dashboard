@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260611_0700_hourly",
+  "snapshot_id": "20260611_0800_hourly",
   "date": "2026-06-11",
   "tag": "hourly",
-  "generated_at": "2026-06-11T07:07:54",
+  "generated_at": "2026-06-11T08:08:47",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -70,10 +70,10 @@
       "id": "capital_tw_securities",
       "display_name": "群益證券資產",
       "currency": "TWD",
-      "as_of": "20260611 04:10:55",
+      "as_of": "20260611 08:10:28",
       "source": "User confirmed inventory override / official quote revaluation",
       "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
-      "price_source_time": "20260611 04:10:55",
+      "price_source_time": "20260611 08:10:28",
       "market_value_twd": 381150,
       "net_value_twd": 381150,
       "cost_twd": null,
@@ -422,7 +422,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-11T07:13:56",
+    "as_of": "2026-06-11T08:18:49",
     "current_lots": 0,
     "current_side": "FLAT",
     "kgi_unrealized_pnl_twd": 0,
@@ -454,59 +454,70 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-11T07:13:57",
-    "record_count": 94,
+    "updated_at": "2026-06-11T08:19:42",
+    "record_count": 95,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
     "today": {
-      "total_twd": 0,
-      "count": 0,
-      "by_category": {},
-      "by_payment": {}
+      "total_twd": 36,
+      "count": 1,
+      "by_category": {
+        "餐飲": 36
+      },
+      "by_payment": {
+        "Unknown": 36
+      }
     },
     "week": {
-      "total_twd": 4239,
-      "count": 13,
+      "total_twd": 4275,
+      "count": 14,
       "by_category": {
         "其他": 2275,
         "交通": 1355,
-        "餐飲": 550,
+        "餐飲": 586,
         "購物": 59
       },
       "by_payment": {
-        "Unknown": 4239
+        "Unknown": 4275
       }
     },
     "month": {
-      "total_twd": 23728,
-      "count": 38,
+      "total_twd": 23764,
+      "count": 39,
       "by_category": {
         "其他": 17014,
         "交通": 3928,
-        "餐飲": 1630,
+        "餐飲": 1666,
         "家庭": 1097,
         "購物": 59
       },
       "by_payment": {
-        "Unknown": 23728
+        "Unknown": 23764
       }
     },
     "all_time": {
-      "total_twd": 78156,
-      "count": 94,
+      "total_twd": 78192,
+      "count": 95,
       "by_category": {
         "其他": 57268,
-        "餐飲": 8243,
+        "餐飲": 8279,
         "交通": 6652,
         "家庭": 4416,
         "育兒": 1518,
         "購物": 59
       },
       "by_payment": {
-        "未知": 78156
+        "未知": 78192
       }
     },
     "recent": [
+      {
+        "date": "2026-06-11",
+        "description": "早餐",
+        "category": "餐飲",
+        "payment": "",
+        "amount_twd": 36
+      },
       {
         "date": "2026-06-10",
         "description": "午餐",
@@ -555,13 +566,6 @@
         "category": "購物",
         "payment": "",
         "amount_twd": 59
-      },
-      {
-        "date": "2026-06-09",
-        "description": "計程車",
-        "category": "交通",
-        "payment": "",
-        "amount_twd": 570
       }
     ]
   },
@@ -19279,7 +19283,44 @@
         "manual_cash": 0,
         "total_net_worth": 2535784
       }
+    },
+    {
+      "snapshot_id": "20260611_0800_hourly",
+      "date": "2026-06-11",
+      "tag": "hourly",
+      "generated_at": "2026-06-11T08:08:47",
+      "total_net_worth_twd": 2535784,
+      "capital_tw_equity_twd": 381150,
+      "capital_tw_market_value_twd": 381150,
+      "capital_futures_equity_twd": 11815,
+      "kgi_futures_equity_twd": 427966,
+      "kgi_domestic_equity_twd": 427966,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1442693,
+      "us_portfolio_account_1_stock_value_twd": 1442693,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1714853,
+      "expense_today_twd": 36,
+      "expense_week_twd": 4275,
+      "expense_month_twd": 23764,
+      "expense_alltime_twd": 78192,
+      "component_nav_twd": {
+        "capital_tw_securities": 381150,
+        "capital_futures": 11815,
+        "kgi_futures_total": 427966,
+        "kgi_domestic_futures": 427966,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1714853,
+        "us_portfolio_account_1": 1442693,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2535784
+      }
     }
   ],
-  "history_count": 535
+  "history_count": 536
 }
