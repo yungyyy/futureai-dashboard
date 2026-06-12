@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260613_0500_hourly",
+  "snapshot_id": "20260613_0600_hourly",
   "date": "2026-06-13",
   "tag": "hourly",
-  "generated_at": "2026-06-13T05:09:18",
+  "generated_at": "2026-06-13T06:06:29",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -28,52 +28,52 @@
     "us_portfolio_account_1_value_twd": 1442693,
     "us_portfolio_account_1_stock_value_twd": 1442693,
     "us_portfolio_account_1_cash_twd": 0,
-    "us_portfolio_account_2_value_twd": 272160,
-    "us_portfolios_market_value_twd": 1714853,
+    "us_portfolio_account_2_value_twd": 251230,
+    "us_portfolios_market_value_twd": 1693923,
     "us_portfolios_cash_twd": 0,
     "us_portfolios_cost_twd": 1281308,
-    "us_portfolios_unrealized_pnl_twd": 433545,
+    "us_portfolios_unrealized_pnl_twd": 412614,
     "tw_stock_inventory_market_value_twd": 378950,
     "liquid_tw_broker_equity_twd": 762581,
-    "total_net_worth_twd": 2477434,
+    "total_net_worth_twd": 2456504,
     "component_nav_twd": {
       "capital_tw_securities": 378950,
       "capital_futures": 11815,
       "kgi_futures_total": 371816,
       "kgi_domestic_futures": 371816,
       "kgi_overseas_futures": 0,
-      "us_portfolios_total": 1714853,
+      "us_portfolios_total": 1693923,
       "us_portfolio_account_1": 1442693,
       "us_portfolio_account_1_cash": 0,
-      "us_portfolio_account_2": 272160,
+      "us_portfolio_account_2": 251230,
       "manual_cash": 0,
-      "total_net_worth": 2477434
+      "total_net_worth": 2456504
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": -14370,
+    "total_net_worth_twd": -20930,
     "capital_tw_equity_twd": 0,
     "capital_tw_market_value_twd": 0,
-    "kgi_futures_equity_twd": -14370,
-    "kgi_domestic_equity_twd": -14370,
+    "kgi_futures_equity_twd": 0,
+    "kgi_domestic_equity_twd": 0,
     "kgi_overseas_equity_twd": 0,
     "manual_cash_twd": 0,
     "us_portfolio_account_1_value_twd": 0,
     "us_portfolio_account_1_stock_value_twd": 0,
     "us_portfolio_account_1_cash_twd": 0,
-    "us_portfolio_account_2_value_twd": 0,
+    "us_portfolio_account_2_value_twd": -20930,
     "us_portfolios_cash_twd": 0,
-    "us_portfolios_market_value_twd": 0
+    "us_portfolios_market_value_twd": -20930
   },
   "accounts": {
     "capital_tw_securities": {
       "id": "capital_tw_securities",
       "display_name": "群益證券資產",
       "currency": "TWD",
-      "as_of": "20260613 04:05:39",
+      "as_of": "20260613 01:09:36",
       "source": "User confirmed inventory override / official quote revaluation",
       "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
-      "price_source_time": "20260613 04:05:39",
+      "price_source_time": "20260613 01:09:36",
       "market_value_twd": 378950,
       "net_value_twd": 378950,
       "cost_twd": null,
@@ -129,7 +129,7 @@
       "id": "kgi_futures",
       "display_name": "凱基期貨權益數",
       "currency": "TWD",
-      "as_of": "2026-06-13T05:10:09",
+      "as_of": "2026-06-13T05:55:53",
       "source": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\kgi_inventory_state.json",
       "status": "OK",
       "domestic_equity_twd": 371816,
@@ -385,15 +385,15 @@
       "id": "us_portfolio_account_2",
       "display_name": "美股資產 Portfolio B",
       "currency": "USD",
-      "as_of": "2026-06-09",
+      "as_of": "2026-06-12",
       "source": "broker baseline + us_stocks/kline_cache",
-      "market_value_usd": 8640.0,
+      "market_value_usd": 7975.54,
       "cost_usd": 5347.0,
-      "unrealized_pnl_usd": 3293.0,
-      "return_pct": 61.59,
-      "market_value_twd": 272160,
+      "unrealized_pnl_usd": 2628.54,
+      "return_pct": 49.16,
+      "market_value_twd": 251230,
       "cost_twd": 168430,
-      "unrealized_pnl_twd": 103730,
+      "unrealized_pnl_twd": 82799,
       "position_details_are_estimated": true,
       "positions": [
         {
@@ -401,46 +401,43 @@
           "shares": 12,
           "avg_cost_usd": 214.5,
           "name": "Alphabet",
-          "price_usd": null,
-          "close_date": "2026-06-09",
-          "market_value_usd": 0.0,
+          "price_usd": 358.16,
+          "close_date": "2026-06-12",
+          "market_value_usd": 4297.92,
           "cost_usd": 2574.0,
-          "unrealized_pnl_usd": -2574.0,
-          "return_pct": -100.0
+          "unrealized_pnl_usd": 1723.92,
+          "return_pct": 66.97
         },
         {
           "ticker": "NVDA",
           "shares": 10,
           "avg_cost_usd": 124.35,
           "name": "NVIDIA",
-          "price_usd": null,
-          "close_date": "2026-06-09",
-          "market_value_usd": 0.0,
+          "price_usd": 205.19,
+          "close_date": "2026-06-12",
+          "market_value_usd": 2051.9,
           "cost_usd": 1243.5,
-          "unrealized_pnl_usd": -1243.5,
-          "return_pct": -100.0
+          "unrealized_pnl_usd": 808.4,
+          "return_pct": 65.01
         },
         {
           "ticker": "TSLA",
           "shares": 4,
           "avg_cost_usd": 382.52,
           "name": "Tesla",
-          "price_usd": null,
-          "close_date": "2026-06-09",
-          "market_value_usd": 0.0,
+          "price_usd": 406.43,
+          "close_date": "2026-06-12",
+          "market_value_usd": 1625.72,
           "cost_usd": 1530.08,
-          "unrealized_pnl_usd": -1530.08,
-          "return_pct": -100.0
+          "unrealized_pnl_usd": 95.64,
+          "return_pct": 6.25
         }
       ],
-      "warnings": [
-        "Portfolio B has missing ticker prices; using account-level broker total where needed.",
-        "US Portfolio B 價格資料過舊：2026-06-09（4 天前）。"
-      ]
+      "warnings": []
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-13T05:16:00",
+    "as_of": "2026-06-13T06:11:17",
     "current_lots": 3,
     "current_side": "LONG",
     "kgi_unrealized_pnl_twd": -12910,
@@ -479,7 +476,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-13T05:16:03",
+    "updated_at": "2026-06-13T06:11:17",
     "record_count": 98,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -593,9 +590,7 @@
   },
   "warnings": [
     "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
-    "US Portfolio A 價格資料過舊：2026-05-21（23 天前）。",
-    "Portfolio B has missing ticker prices; using account-level broker total where needed.",
-    "US Portfolio B 價格資料過舊：2026-06-09（4 天前）。"
+    "US Portfolio A 價格資料過舊：2026-05-21（23 天前）。"
   ],
   "family_note": "FutureAI Networth 公開淨值頁；策略內部因子與原始交易明細只留在本機。",
   "history": [
@@ -20712,7 +20707,44 @@
         "manual_cash": 0,
         "total_net_worth": 2477434
       }
+    },
+    {
+      "snapshot_id": "20260613_0600_hourly",
+      "date": "2026-06-13",
+      "tag": "hourly",
+      "generated_at": "2026-06-13T06:06:29",
+      "total_net_worth_twd": 2456504,
+      "capital_tw_equity_twd": 378950,
+      "capital_tw_market_value_twd": 378950,
+      "capital_futures_equity_twd": 11815,
+      "kgi_futures_equity_twd": 371816,
+      "kgi_domestic_equity_twd": 371816,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1442693,
+      "us_portfolio_account_1_stock_value_twd": 1442693,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 251230,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1693923,
+      "expense_today_twd": 0,
+      "expense_week_twd": 8469,
+      "expense_month_twd": 27958,
+      "expense_alltime_twd": 82386,
+      "component_nav_twd": {
+        "capital_tw_securities": 378950,
+        "capital_futures": 11815,
+        "kgi_futures_total": 371816,
+        "kgi_domestic_futures": 371816,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1693923,
+        "us_portfolio_account_1": 1442693,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 251230,
+        "manual_cash": 0,
+        "total_net_worth": 2456504
+      }
     }
   ],
-  "history_count": 573
+  "history_count": 574
 }
