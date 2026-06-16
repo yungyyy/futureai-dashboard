@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260616_1300_hourly",
+  "snapshot_id": "20260616_1400_hourly",
   "date": "2026-06-16",
   "tag": "hourly",
-  "generated_at": "2026-06-16T13:07:36",
+  "generated_at": "2026-06-16T14:09:57",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -51,9 +51,9 @@
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": -379500,
-    "capital_tw_equity_twd": -379500,
-    "capital_tw_market_value_twd": -379500,
+    "total_net_worth_twd": 0,
+    "capital_tw_equity_twd": 0,
+    "capital_tw_market_value_twd": 0,
     "kgi_futures_equity_twd": 0,
     "kgi_domestic_equity_twd": 0,
     "kgi_overseas_equity_twd": 0,
@@ -119,7 +119,7 @@
       "available_twd": 39233,
       "realized_today_twd": 0,
       "source": "Capital_API_GetFutureRightMoney",
-      "as_of": "2026-06-16T12:20:49",
+      "as_of": "2026-06-16T13:21:22",
       "warnings": []
     },
     "kgi_futures": {
@@ -437,7 +437,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-16T13:11:25",
+    "as_of": "2026-06-16T14:20:15",
     "current_lots": 3,
     "current_side": "LONG",
     "kgi_unrealized_pnl_twd": -9310,
@@ -476,56 +476,76 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-16T13:11:25",
-    "record_count": 103,
+    "updated_at": "2026-06-16T14:20:15",
+    "record_count": 105,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
     "today": {
-      "total_twd": 0,
-      "count": 0,
-      "by_category": {},
-      "by_payment": {}
-    },
-    "week": {
-      "total_twd": 3199,
+      "total_twd": 65,
       "count": 2,
       "by_category": {
-        "其他": 3199
+        "餐飲": 45,
+        "其他": 20
       },
       "by_payment": {
-        "Unknown": 3199
+        "Unknown": 65
+      }
+    },
+    "week": {
+      "total_twd": 3264,
+      "count": 4,
+      "by_category": {
+        "其他": 3219,
+        "餐飲": 45
+      },
+      "by_payment": {
+        "Unknown": 3264
       }
     },
     "month": {
-      "total_twd": 32731,
-      "count": 47,
+      "total_twd": 32796,
+      "count": 49,
       "by_category": {
-        "其他": 21213,
+        "其他": 21233,
         "交通": 4878,
         "家庭": 4341,
-        "餐飲": 2240,
+        "餐飲": 2285,
         "購物": 59
       },
       "by_payment": {
-        "Unknown": 32731
+        "Unknown": 32796
       }
     },
     "all_time": {
-      "total_twd": 87159,
-      "count": 103,
+      "total_twd": 87224,
+      "count": 105,
       "by_category": {
-        "其他": 61467,
-        "餐飲": 8853,
+        "其他": 61487,
+        "餐飲": 8898,
         "家庭": 7660,
         "交通": 7602,
         "育兒": 1518,
         "購物": 59
       },
       "by_payment": {
-        "未知": 87159
+        "未知": 87224
       }
     },
     "recent": [
+      {
+        "date": "2026-06-16",
+        "description": "早餐",
+        "category": "餐飲",
+        "payment": "",
+        "amount_twd": 45
+      },
+      {
+        "date": "2026-06-16",
+        "description": "巧克力",
+        "category": "其他",
+        "payment": "",
+        "amount_twd": 20
+      },
       {
         "date": "2026-06-15",
         "description": "考試報名費",
@@ -563,20 +583,6 @@
       },
       {
         "date": "2026-06-12",
-        "description": "計程車",
-        "category": "交通",
-        "payment": "",
-        "amount_twd": 475
-      },
-      {
-        "date": "2026-06-12",
-        "description": "奶粉",
-        "category": "家庭",
-        "payment": "",
-        "amount_twd": 3244
-      },
-      {
-        "date": "2026-06-11",
         "description": "計程車",
         "category": "交通",
         "payment": "",
@@ -23482,7 +23488,44 @@
         "manual_cash": 0,
         "total_net_worth": 2169707
       }
+    },
+    {
+      "snapshot_id": "20260616_1400_hourly",
+      "date": "2026-06-16",
+      "tag": "hourly",
+      "generated_at": "2026-06-16T14:09:57",
+      "total_net_worth_twd": 2169707,
+      "capital_tw_equity_twd": 0,
+      "capital_tw_market_value_twd": 0,
+      "capital_futures_equity_twd": 48118,
+      "kgi_futures_equity_twd": 406736,
+      "kgi_domestic_equity_twd": 406736,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1442693,
+      "us_portfolio_account_1_stock_value_twd": 1442693,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1714853,
+      "expense_today_twd": 65,
+      "expense_week_twd": 3264,
+      "expense_month_twd": 32796,
+      "expense_alltime_twd": 87224,
+      "component_nav_twd": {
+        "capital_tw_securities": 0,
+        "capital_futures": 48118,
+        "kgi_futures_total": 406736,
+        "kgi_domestic_futures": 406736,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1714853,
+        "us_portfolio_account_1": 1442693,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2169707
+      }
     }
   ],
-  "history_count": 648
+  "history_count": 649
 }
