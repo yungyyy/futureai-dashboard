@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260616_1800_hourly",
+  "snapshot_id": "20260616_1900_hourly",
   "date": "2026-06-16",
   "tag": "hourly",
-  "generated_at": "2026-06-16T18:09:25",
+  "generated_at": "2026-06-16T19:09:49",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -51,11 +51,11 @@
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": 3106,
+    "total_net_worth_twd": 0,
     "capital_tw_equity_twd": 0,
     "capital_tw_market_value_twd": 0,
-    "kgi_futures_equity_twd": 3106,
-    "kgi_domestic_equity_twd": 3106,
+    "kgi_futures_equity_twd": 0,
+    "kgi_domestic_equity_twd": 0,
     "kgi_overseas_equity_twd": 0,
     "manual_cash_twd": 0,
     "us_portfolio_account_1_value_twd": 0,
@@ -72,7 +72,7 @@
       "currency": "TWD",
       "as_of": "2026-05-22",
       "source": "User confirmed inventory override",
-      "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
+      "price_source": "TWSE/TPEx MIS unavailable",
       "price_source_time": "2026-05-22",
       "market_value_twd": 0,
       "net_value_twd": 0,
@@ -107,7 +107,8 @@
       ],
       "warnings": [
         "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
-        "缺少官方即時/收盤報價：7851；保留券商/備援價格。"
+        "缺少官方即時/收盤報價：7851；保留券商/備援價格。",
+        "TWSE/TPEx MIS 報價抓取失敗：<urlopen error _ssl.c:989: The handshake operation timed out>"
       ]
     },
     "capital_futures": {
@@ -118,7 +119,7 @@
       "available_twd": 39233,
       "realized_today_twd": 0,
       "source": "Capital_API_GetFutureRightMoney",
-      "as_of": "2026-06-16T17:22:13",
+      "as_of": "2026-06-16T18:20:47",
       "warnings": []
     },
     "kgi_futures": {
@@ -436,7 +437,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-16T18:15:10",
+    "as_of": "2026-06-16T19:14:33",
     "current_lots": 3,
     "current_side": "LONG",
     "kgi_unrealized_pnl_twd": 740,
@@ -475,7 +476,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-16T18:15:12",
+    "updated_at": "2026-06-16T19:14:33",
     "record_count": 107,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -592,6 +593,7 @@
   "warnings": [
     "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
     "缺少官方即時/收盤報價：7851；保留券商/備援價格。",
+    "TWSE/TPEx MIS 報價抓取失敗：<urlopen error _ssl.c:989: The handshake operation timed out>",
     "US Portfolio A 價格資料過舊：2026-05-21（26 天前）。",
     "Portfolio B has missing ticker prices; using account-level broker total where needed.",
     "US Portfolio B 價格資料過舊：2026-05-17（30 天前）。"
@@ -23597,7 +23599,44 @@
         "manual_cash": 0,
         "total_net_worth": 2172813
       }
+    },
+    {
+      "snapshot_id": "20260616_1900_hourly",
+      "date": "2026-06-16",
+      "tag": "hourly",
+      "generated_at": "2026-06-16T19:09:49",
+      "total_net_worth_twd": 2172813,
+      "capital_tw_equity_twd": 0,
+      "capital_tw_market_value_twd": 0,
+      "capital_futures_equity_twd": 48118,
+      "kgi_futures_equity_twd": 409842,
+      "kgi_domestic_equity_twd": 409842,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1442693,
+      "us_portfolio_account_1_stock_value_twd": 1442693,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1714853,
+      "expense_today_twd": 629,
+      "expense_week_twd": 3828,
+      "expense_month_twd": 33360,
+      "expense_alltime_twd": 87788,
+      "component_nav_twd": {
+        "capital_tw_securities": 0,
+        "capital_futures": 48118,
+        "kgi_futures_total": 409842,
+        "kgi_domestic_futures": 409842,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1714853,
+        "us_portfolio_account_1": 1442693,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2172813
+      }
     }
   ],
-  "history_count": 651
+  "history_count": 652
 }
