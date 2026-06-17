@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260618_0100_hourly",
+  "snapshot_id": "20260618_0200_hourly",
   "date": "2026-06-18",
   "tag": "hourly",
-  "generated_at": "2026-06-18T01:08:26",
+  "generated_at": "2026-06-18T02:07:58",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -19,8 +19,8 @@
   "totals": {
     "capital_tw_equity_twd": 0,
     "capital_tw_market_value_twd": 0,
-    "capital_futures_equity_twd": 14405,
-    "capital_futures_available_twd": 14405,
+    "capital_futures_equity_twd": 14905,
+    "capital_futures_available_twd": 14905,
     "kgi_futures_equity_twd": 440010,
     "kgi_domestic_equity_twd": 440010,
     "kgi_overseas_equity_twd": 0,
@@ -34,11 +34,11 @@
     "us_portfolios_cost_twd": 1367091,
     "us_portfolios_unrealized_pnl_twd": 417366,
     "tw_stock_inventory_market_value_twd": 0,
-    "liquid_tw_broker_equity_twd": 454415,
-    "total_net_worth_twd": 2238872,
+    "liquid_tw_broker_equity_twd": 454915,
+    "total_net_worth_twd": 2239372,
     "component_nav_twd": {
       "capital_tw_securities": 0,
-      "capital_futures": 14405,
+      "capital_futures": 14905,
       "kgi_futures_total": 440010,
       "kgi_domestic_futures": 440010,
       "kgi_overseas_futures": 0,
@@ -47,11 +47,11 @@
       "us_portfolio_account_1_cash": 0,
       "us_portfolio_account_2": 272160,
       "manual_cash": 0,
-      "total_net_worth": 2238872
+      "total_net_worth": 2239372
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": 0,
+    "total_net_worth_twd": 500,
     "capital_tw_equity_twd": 0,
     "capital_tw_market_value_twd": 0,
     "kgi_futures_equity_twd": 0,
@@ -114,11 +114,11 @@
       "id": "capital_futures",
       "display_name": "群益期貨",
       "currency": "TWD",
-      "equity_twd": 14405,
-      "available_twd": 14405,
-      "realized_today_twd": 6000,
+      "equity_twd": 14905,
+      "available_twd": 14905,
+      "realized_today_twd": 6500,
       "source": "Capital_API_GetFutureRightMoney",
-      "as_of": "2026-06-17T23:21:28",
+      "as_of": "2026-06-18T01:21:07",
       "warnings": []
     },
     "kgi_futures": {
@@ -448,7 +448,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-18T01:12:52",
+    "as_of": "2026-06-18T02:12:23",
     "current_lots": 7,
     "current_side": "LONG",
     "kgi_unrealized_pnl_twd": 14480,
@@ -487,7 +487,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-18T01:12:54",
+    "updated_at": "2026-06-18T02:12:23",
     "record_count": 108,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -24676,7 +24676,44 @@
         "manual_cash": 0,
         "total_net_worth": 2238872
       }
+    },
+    {
+      "snapshot_id": "20260618_0200_hourly",
+      "date": "2026-06-18",
+      "tag": "hourly",
+      "generated_at": "2026-06-18T02:07:58",
+      "total_net_worth_twd": 2239372,
+      "capital_tw_equity_twd": 0,
+      "capital_tw_market_value_twd": 0,
+      "capital_futures_equity_twd": 14905,
+      "kgi_futures_equity_twd": 440010,
+      "kgi_domestic_equity_twd": 440010,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1512297,
+      "us_portfolio_account_1_stock_value_twd": 1512297,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1784457,
+      "expense_today_twd": 0,
+      "expense_week_twd": 3888,
+      "expense_month_twd": 33420,
+      "expense_alltime_twd": 87848,
+      "component_nav_twd": {
+        "capital_tw_securities": 0,
+        "capital_futures": 14905,
+        "kgi_futures_total": 440010,
+        "kgi_domestic_futures": 440010,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1784457,
+        "us_portfolio_account_1": 1512297,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2239372
+      }
     }
   ],
-  "history_count": 680
+  "history_count": 681
 }
