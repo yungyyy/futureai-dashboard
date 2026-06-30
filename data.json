@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260630_1400_hourly",
+  "snapshot_id": "20260630_1500_hourly",
   "date": "2026-06-30",
   "tag": "hourly",
-  "generated_at": "2026-06-30T14:07:10",
+  "generated_at": "2026-06-30T15:06:37",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -51,9 +51,9 @@
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": -8800,
-    "capital_tw_equity_twd": -8800,
-    "capital_tw_market_value_twd": -8800,
+    "total_net_worth_twd": 0,
+    "capital_tw_equity_twd": 0,
+    "capital_tw_market_value_twd": 0,
     "kgi_futures_equity_twd": 0,
     "kgi_domestic_equity_twd": 0,
     "kgi_overseas_equity_twd": 0,
@@ -70,10 +70,10 @@
       "id": "capital_tw_securities",
       "display_name": "群益證券資產",
       "currency": "TWD",
-      "as_of": "20260630 14:07:24",
+      "as_of": "20260630 15:06:54",
       "source": "User confirmed inventory override / official quote revaluation",
       "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
-      "price_source_time": "20260630 14:07:24",
+      "price_source_time": "20260630 15:06:54",
       "market_value_twd": 337700,
       "net_value_twd": 337700,
       "cost_twd": 452100,
@@ -520,7 +520,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-06-30T14:09:24",
+    "as_of": "2026-06-30T15:09:00",
     "current_lots": 3,
     "current_side": "LONG",
     "kgi_unrealized_pnl_twd": 9110,
@@ -600,7 +600,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-06-30T14:09:24",
+    "updated_at": "2026-06-30T15:09:00",
     "record_count": 121,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -27005,7 +27005,44 @@
         "manual_cash": 0,
         "total_net_worth": 2759136
       }
+    },
+    {
+      "snapshot_id": "20260630_1500_hourly",
+      "date": "2026-06-30",
+      "tag": "hourly",
+      "generated_at": "2026-06-30T15:06:37",
+      "total_net_worth_twd": 2759136,
+      "capital_tw_equity_twd": 337700,
+      "capital_tw_market_value_twd": 337700,
+      "capital_futures_equity_twd": 0,
+      "kgi_futures_equity_twd": 636979,
+      "kgi_domestic_equity_twd": 636979,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1512297,
+      "us_portfolio_account_1_stock_value_twd": 1512297,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1784457,
+      "expense_today_twd": 0,
+      "expense_week_twd": 0,
+      "expense_month_twd": 38535,
+      "expense_alltime_twd": 92963,
+      "component_nav_twd": {
+        "capital_tw_securities": 337700,
+        "capital_futures": 0,
+        "kgi_futures_total": 636979,
+        "kgi_domestic_futures": 636979,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1784457,
+        "us_portfolio_account_1": 1512297,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2759136
+      }
     }
   ],
-  "history_count": 740
+  "history_count": 741
 }
