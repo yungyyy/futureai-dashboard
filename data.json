@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260702_1900_hourly",
+  "snapshot_id": "20260702_2000_hourly",
   "date": "2026-07-02",
   "tag": "hourly",
-  "generated_at": "2026-07-02T19:07:04",
+  "generated_at": "2026-07-02T20:06:36",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -72,7 +72,7 @@
       "currency": "TWD",
       "as_of": "2026-06-22",
       "source": "User confirmed inventory override",
-      "price_source": "TWSE/TPEx MIS unavailable",
+      "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
       "price_source_time": "2026-06-22",
       "market_value_twd": 375100,
       "net_value_twd": 375100,
@@ -107,8 +107,7 @@
       ],
       "warnings": [
         "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
-        "缺少官方即時/收盤報價：7851；保留券商/備援價格。",
-        "TWSE/TPEx MIS 報價抓取失敗：<urlopen error _ssl.c:989: The handshake operation timed out>"
+        "缺少官方即時/收盤報價：7851；保留券商/備援價格。"
       ]
     },
     "capital_futures": {
@@ -485,7 +484,7 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-07-02T19:11:26",
+    "as_of": "2026-07-02T20:11:51",
     "current_lots": 2,
     "current_side": "LONG",
     "kgi_unrealized_pnl_twd": 5990,
@@ -540,12 +539,12 @@
         "unrealized_pnl": "已併入 KGI 策略未實現損益 +5,990 元"
       }
     ],
-    "broker_fill_count": 7,
+    "broker_fill_count": 8,
     "privacy_note": "公開頁只顯示策略別名；原始策略名稱只保存在本機 memory/account_asset_snapshots/futures_strategy_alias_private.json"
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-07-02T19:11:28",
+    "updated_at": "2026-07-02T20:11:52",
     "record_count": 121,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -644,7 +643,6 @@
   "warnings": [
     "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
     "缺少官方即時/收盤報價：7851；保留券商/備援價格。",
-    "TWSE/TPEx MIS 報價抓取失敗：<urlopen error _ssl.c:989: The handshake operation timed out>",
     "群益期貨權益數尚未設定。請用 Telegram 指令 /capfut <金額> 更新，例：/capfut 500000。",
     "US Portfolio A 價格資料過舊：2026-06-17（15 天前）。",
     "Portfolio B has missing ticker prices; using account-level broker total where needed.",
@@ -28868,7 +28866,44 @@
         "manual_cash": 0,
         "total_net_worth": 2802368
       }
+    },
+    {
+      "snapshot_id": "20260702_2000_hourly",
+      "date": "2026-07-02",
+      "tag": "hourly",
+      "generated_at": "2026-07-02T20:06:36",
+      "total_net_worth_twd": 2802368,
+      "capital_tw_equity_twd": 375100,
+      "capital_tw_market_value_twd": 375100,
+      "capital_futures_equity_twd": 0,
+      "kgi_futures_equity_twd": 642811,
+      "kgi_domestic_equity_twd": 642811,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1512297,
+      "us_portfolio_account_1_stock_value_twd": 1512297,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1784457,
+      "expense_today_twd": 0,
+      "expense_week_twd": 0,
+      "expense_month_twd": 0,
+      "expense_alltime_twd": 92963,
+      "component_nav_twd": {
+        "capital_tw_securities": 375100,
+        "capital_futures": 0,
+        "kgi_futures_total": 642811,
+        "kgi_domestic_futures": 642811,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1784457,
+        "us_portfolio_account_1": 1512297,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2802368
+      }
     }
   ],
-  "history_count": 792
+  "history_count": 793
 }
