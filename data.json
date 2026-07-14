@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260714_1900_hourly",
+  "snapshot_id": "20260714_2000_hourly",
   "date": "2026-07-14",
   "tag": "hourly",
-  "generated_at": "2026-07-14T19:11:07",
+  "generated_at": "2026-07-14T20:14:38",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -21,8 +21,8 @@
     "capital_tw_market_value_twd": 323400,
     "capital_futures_equity_twd": 0,
     "capital_futures_available_twd": 0,
-    "kgi_futures_equity_twd": 553917,
-    "kgi_domestic_equity_twd": 553917,
+    "kgi_futures_equity_twd": 559885,
+    "kgi_domestic_equity_twd": 559885,
     "kgi_overseas_equity_twd": 0,
     "manual_cash_twd": 0,
     "us_portfolio_account_1_value_twd": 1512297,
@@ -34,28 +34,28 @@
     "us_portfolios_cost_twd": 1367091,
     "us_portfolios_unrealized_pnl_twd": 417366,
     "tw_stock_inventory_market_value_twd": 323400,
-    "liquid_tw_broker_equity_twd": 877317,
-    "total_net_worth_twd": 2661774,
+    "liquid_tw_broker_equity_twd": 883285,
+    "total_net_worth_twd": 2667742,
     "component_nav_twd": {
       "capital_tw_securities": 323400,
       "capital_futures": 0,
-      "kgi_futures_total": 553917,
-      "kgi_domestic_futures": 553917,
+      "kgi_futures_total": 559885,
+      "kgi_domestic_futures": 559885,
       "kgi_overseas_futures": 0,
       "us_portfolios_total": 1784457,
       "us_portfolio_account_1": 1512297,
       "us_portfolio_account_1_cash": 0,
       "us_portfolio_account_2": 272160,
       "manual_cash": 0,
-      "total_net_worth": 2661774
+      "total_net_worth": 2667742
     }
   },
   "delta_vs_previous": {
-    "total_net_worth_twd": -2054,
+    "total_net_worth_twd": 5968,
     "capital_tw_equity_twd": 0,
     "capital_tw_market_value_twd": 0,
-    "kgi_futures_equity_twd": -2054,
-    "kgi_domestic_equity_twd": -2054,
+    "kgi_futures_equity_twd": 5968,
+    "kgi_domestic_equity_twd": 5968,
     "kgi_overseas_equity_twd": 0,
     "manual_cash_twd": 0,
     "us_portfolio_account_1_value_twd": 0,
@@ -70,10 +70,10 @@
       "id": "capital_tw_securities",
       "display_name": "群益證券資產",
       "currency": "TWD",
-      "as_of": "20260714 15:07:26",
+      "as_of": "20260714 19:11:24",
       "source": "User confirmed inventory override / official quote revaluation",
       "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
-      "price_source_time": "20260714 15:07:26",
+      "price_source_time": "20260714 19:11:24",
       "market_value_twd": 323400,
       "net_value_twd": 323400,
       "cost_twd": 452100,
@@ -131,16 +131,16 @@
       "id": "kgi_futures",
       "display_name": "凱基期貨權益數",
       "currency": "TWD",
-      "as_of": "2026-07-14T18:40:15",
+      "as_of": "2026-07-14T19:32:04",
       "source": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\kgi_inventory_state.json",
       "status": "OK",
-      "domestic_equity_twd": 553917,
+      "domestic_equity_twd": 559885,
       "manual_overseas_equity_twd": 0,
-      "equity_twd": 553917,
-      "available_twd": 93796,
-      "unrealized_pnl_twd": -57650,
-      "domestic_futures_lots": 13.0,
-      "strategy_futures_lots": 1.0,
+      "equity_twd": 559885,
+      "available_twd": 61353,
+      "unrealized_pnl_twd": -51660,
+      "domestic_futures_lots": 14.0,
+      "strategy_futures_lots": 2.0,
       "overseas_futures_lots": 0,
       "positions": {
         "domestic_futures": [
@@ -154,11 +154,11 @@
             "qty": 1.0,
             "quantity": 1.0,
             "_signed_qty": 1.0,
-            "m_price": 154.5,
+            "m_price": 155.5,
             "trd_price": 153.0,
             "deal_price": 154.5,
-            "prtlos": 0.0,
-            "pnl": 0.0
+            "prtlos": 2000.0,
+            "pnl": 2000.0
           },
           {
             "symbol": "PUFH6",
@@ -202,11 +202,11 @@
             "qty": 4.0,
             "quantity": 4.0,
             "_signed_qty": 4.0,
-            "m_price": 2443.0,
+            "m_price": 2447.0,
             "trd_price": 2442.0,
             "deal_price": 2438.75,
-            "prtlos": 1700.0,
-            "pnl": 1700.0
+            "prtlos": 3300.0,
+            "pnl": 3300.0
           },
           {
             "symbol": "RVFG6",
@@ -247,14 +247,14 @@
             "com_ym": "202608",
             "cp": "",
             "bs": "B",
-            "qty": 1.0,
-            "quantity": 1.0,
-            "_signed_qty": 1.0,
-            "m_price": 45171.0,
+            "qty": 2.0,
+            "quantity": 2.0,
+            "_signed_qty": 2.0,
+            "m_price": 45302.0,
             "trd_price": 45145.0,
-            "deal_price": 45097.0,
-            "prtlos": 740.0,
-            "pnl": 740.0
+            "deal_price": 45137.0,
+            "prtlos": 3300.0,
+            "pnl": 3300.0
           }
         ],
         "overseas_futures": []
@@ -552,10 +552,10 @@
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-07-14T19:14:29",
-    "current_lots": 1,
+    "as_of": "2026-07-14T20:17:31",
+    "current_lots": 2,
     "current_side": "LONG",
-    "kgi_unrealized_pnl_twd": 740,
+    "kgi_unrealized_pnl_twd": 3300,
     "excluded_non_strategy_lots": 12,
     "excluded_non_strategy_note": "已排除非策略期貨商品；換月後策略口數只統計 TMF/TM0/TMX 類微台商品。",
     "non_strategy_positions": [
@@ -566,8 +566,8 @@
         "direction": "多",
         "lots": 1,
         "entry_price": 154.5,
-        "market_price": 154.5,
-        "unrealized_pnl_twd": 0
+        "market_price": 155.5,
+        "unrealized_pnl_twd": 2000
       },
       {
         "name": "PUF",
@@ -596,8 +596,8 @@
         "direction": "多",
         "lots": 4,
         "entry_price": 2438.75,
-        "market_price": 2443.0,
-        "unrealized_pnl_twd": 1700
+        "market_price": 2447.0,
+        "unrealized_pnl_twd": 3300
       },
       {
         "name": "RVF",
@@ -643,8 +643,8 @@
       {
         "strategy": "期貨策略持倉",
         "direction": "多單",
-        "lots": 1,
-        "unrealized_pnl": "已併入 KGI 策略未實現損益 +740 元"
+        "lots": 2,
+        "unrealized_pnl": "已併入 KGI 策略未實現損益 +3,300 元"
       }
     ],
     "broker_fill_count": 8,
@@ -652,7 +652,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-07-14T19:14:29",
+    "updated_at": "2026-07-14T20:17:31",
     "record_count": 121,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -39000,7 +39000,44 @@
         "manual_cash": 0,
         "total_net_worth": 2661774
       }
+    },
+    {
+      "snapshot_id": "20260714_2000_hourly",
+      "date": "2026-07-14",
+      "tag": "hourly",
+      "generated_at": "2026-07-14T20:14:38",
+      "total_net_worth_twd": 2667742,
+      "capital_tw_equity_twd": 323400,
+      "capital_tw_market_value_twd": 323400,
+      "capital_futures_equity_twd": 0,
+      "kgi_futures_equity_twd": 559885,
+      "kgi_domestic_equity_twd": 559885,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1512297,
+      "us_portfolio_account_1_stock_value_twd": 1512297,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1784457,
+      "expense_today_twd": 0,
+      "expense_week_twd": 0,
+      "expense_month_twd": 0,
+      "expense_alltime_twd": 92963,
+      "component_nav_twd": {
+        "capital_tw_securities": 323400,
+        "capital_futures": 0,
+        "kgi_futures_total": 559885,
+        "kgi_domestic_futures": 559885,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1784457,
+        "us_portfolio_account_1": 1512297,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2667742
+      }
     }
   ],
-  "history_count": 1063
+  "history_count": 1064
 }
