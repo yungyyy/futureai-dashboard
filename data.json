@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "snapshot_id": "20260731_2300_hourly",
-  "date": "2026-07-31",
+  "snapshot_id": "20260801_0000_hourly",
+  "date": "2026-08-01",
   "tag": "hourly",
-  "generated_at": "2026-07-31T23:01:26",
+  "generated_at": "2026-08-01T00:01:28",
   "base_currency": "TWD",
   "fx": {
     "usd_twd": 31.5,
@@ -70,10 +70,10 @@
       "id": "capital_tw_securities",
       "display_name": "群益證券資產",
       "currency": "TWD",
-      "as_of": "20260731 21:01:33",
+      "as_of": "20260731 22:01:19",
       "source": "User confirmed inventory override / official quote revaluation",
       "price_source": "TWSE/TPEx MIS + TPEx ESB OpenAPI official quote",
-      "price_source_time": "20260731 21:01:33",
+      "price_source_time": "20260731 22:01:19",
       "market_value_twd": 282700,
       "net_value_twd": 282700,
       "cost_twd": 452100,
@@ -122,7 +122,7 @@
       "available_twd": 0,
       "realized_today_twd": 0,
       "source": "Capital_API_GetFutureRightMoney",
-      "as_of": "2026-07-31T22:20:02",
+      "as_of": "2026-07-31T23:20:03",
       "warnings": [
         "群益期貨權益數尚未設定。請用 Telegram 指令 /capfut <金額> 更新，例：/capfut 500000。"
       ]
@@ -394,7 +394,7 @@
         }
       ],
       "warnings": [
-        "US Portfolio A 價格資料過舊：2026-06-17（44 天前）。"
+        "US Portfolio A 價格資料過舊：2026-06-17（45 天前）。"
       ]
     },
     "us_portfolio_account_2": {
@@ -451,12 +451,12 @@
       ],
       "warnings": [
         "Portfolio B has missing ticker prices; using account-level broker total where needed.",
-        "US Portfolio B 價格資料過舊：2026-06-22（39 天前）。"
+        "US Portfolio B 價格資料過舊：2026-06-22（40 天前）。"
       ]
     }
   },
   "futures_strategy_summary": {
-    "as_of": "2026-07-31T23:01:28",
+    "as_of": "2026-08-01T00:01:28",
     "current_lots": 0,
     "current_side": "FLAT",
     "kgi_unrealized_pnl_twd": 0,
@@ -480,11 +480,11 @@
       "kgi_float_pnl": 0,
       "source": "tradingomega/state/daily_pnl_history.json"
     },
-    "activity_date": "2026-07-31",
+    "activity_date": "2026-08-01",
     "strategy_activity": [
       {
         "strategy": "期貨策略合計",
-        "long_lots": 3,
+        "long_lots": 0,
         "short_lots": 0,
         "exit_lots": 0,
         "signal_count": 0,
@@ -499,7 +499,7 @@
   },
   "expense_summary": {
     "status": "OK",
-    "updated_at": "2026-07-31T23:01:28",
+    "updated_at": "2026-08-01T00:01:28",
     "record_count": 122,
     "records_file": "D:\\users\\HP600G5\\Desktop\\futureai\\futureai_bot_v2\\memory\\expense_tracker\\expense_records.jsonl",
     "errors": [],
@@ -516,14 +516,10 @@
       "by_payment": {}
     },
     "month": {
-      "total_twd": 333,
-      "count": 1,
-      "by_category": {
-        "其他": 333
-      },
-      "by_payment": {
-        "Unknown": 333
-      }
+      "total_twd": 0,
+      "count": 0,
+      "by_category": {},
+      "by_payment": {}
     },
     "all_time": {
       "total_twd": 93296,
@@ -602,9 +598,9 @@
   "warnings": [
     "台股證券以券商基準值為主；可取得官方 TWSE/TPEx 報價時會重估。",
     "群益期貨權益數尚未設定。請用 Telegram 指令 /capfut <金額> 更新，例：/capfut 500000。",
-    "US Portfolio A 價格資料過舊：2026-06-17（44 天前）。",
+    "US Portfolio A 價格資料過舊：2026-06-17（45 天前）。",
     "Portfolio B has missing ticker prices; using account-level broker total where needed.",
-    "US Portfolio B 價格資料過舊：2026-06-22（39 天前）。"
+    "US Portfolio B 價格資料過舊：2026-06-22（40 天前）。"
   ],
   "family_note": "FutureAI Networth 公開淨值頁；策略內部因子與原始交易明細只留在本機。",
   "history": [
@@ -51505,7 +51501,44 @@
         "manual_cash": 0,
         "total_net_worth": 2619880
       }
+    },
+    {
+      "snapshot_id": "20260801_0000_hourly",
+      "date": "2026-08-01",
+      "tag": "hourly",
+      "generated_at": "2026-08-01T00:01:28",
+      "total_net_worth_twd": 2619880,
+      "capital_tw_equity_twd": 282700,
+      "capital_tw_market_value_twd": 282700,
+      "capital_futures_equity_twd": 0,
+      "kgi_futures_equity_twd": 552723,
+      "kgi_domestic_equity_twd": 552723,
+      "kgi_overseas_equity_twd": 0,
+      "manual_cash_twd": 0,
+      "us_portfolio_account_1_value_twd": 1512297,
+      "us_portfolio_account_1_stock_value_twd": 1512297,
+      "us_portfolio_account_1_cash_twd": 0,
+      "us_portfolio_account_2_value_twd": 272160,
+      "us_portfolios_cash_twd": 0,
+      "us_portfolios_market_value_twd": 1784457,
+      "expense_today_twd": 0,
+      "expense_week_twd": 0,
+      "expense_month_twd": 0,
+      "expense_alltime_twd": 93296,
+      "component_nav_twd": {
+        "capital_tw_securities": 282700,
+        "capital_futures": 0,
+        "kgi_futures_total": 552723,
+        "kgi_domestic_futures": 552723,
+        "kgi_overseas_futures": 0,
+        "us_portfolios_total": 1784457,
+        "us_portfolio_account_1": 1512297,
+        "us_portfolio_account_1_cash": 0,
+        "us_portfolio_account_2": 272160,
+        "manual_cash": 0,
+        "total_net_worth": 2619880
+      }
     }
   ],
-  "history_count": 1405
+  "history_count": 1406
 }
